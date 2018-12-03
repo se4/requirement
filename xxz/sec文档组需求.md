@@ -1,71 +1,6 @@
 # SEC 文档互评小组需求
 
-- [SEC 文档互评小组需求](#sec-%E6%96%87%E6%A1%A3%E4%BA%92%E8%AF%84%E5%B0%8F%E7%BB%84%E9%9C%80%E6%B1%82)
-  - [版本记录](#%E7%89%88%E6%9C%AC%E8%AE%B0%E5%BD%95)
-  - [说明](#%E8%AF%B4%E6%98%8E)
-  - [术语表](#%E6%9C%AF%E8%AF%AD%E8%A1%A8)
-  - [用户需求](#%E7%94%A8%E6%88%B7%E9%9C%80%E6%B1%82)
-    - [group.create 组队](#groupcreate-%E7%BB%84%E9%98%9F)
-      - [基本信息](#%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF)
-      - [正常流程](#%E6%AD%A3%E5%B8%B8%E6%B5%81%E7%A8%8B)
-      - [扩展流程](#%E6%89%A9%E5%B1%95%E6%B5%81%E7%A8%8B)
-    - [group.join 加入小组](#groupjoin-%E5%8A%A0%E5%85%A5%E5%B0%8F%E7%BB%84)
-      - [基本信息](#%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF-1)
-      - [正常流程](#%E6%AD%A3%E5%B8%B8%E6%B5%81%E7%A8%8B-1)
-      - [扩展流程](#%E6%89%A9%E5%B1%95%E6%B5%81%E7%A8%8B-1)
-    - [group.ls 查看已加入小组列表](#groupls-%E6%9F%A5%E7%9C%8B%E5%B7%B2%E5%8A%A0%E5%85%A5%E5%B0%8F%E7%BB%84%E5%88%97%E8%A1%A8)
-      - [基本信息](#%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF-2)
-      - [正常流程](#%E6%AD%A3%E5%B8%B8%E6%B5%81%E7%A8%8B-2)
-      - [扩展流程](#%E6%89%A9%E5%B1%95%E6%B5%81%E7%A8%8B-2)
-    - [course.join 加入课程](#coursejoin-%E5%8A%A0%E5%85%A5%E8%AF%BE%E7%A8%8B)
-      - [基本信息](#%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF-3)
-      - [正常流程](#%E6%AD%A3%E5%B8%B8%E6%B5%81%E7%A8%8B-3)
-      - [扩展流程](#%E6%89%A9%E5%B1%95%E6%B5%81%E7%A8%8B-3)
-    - [course.create 新建课程](#coursecreate-%E6%96%B0%E5%BB%BA%E8%AF%BE%E7%A8%8B)
-      - [基本信息](#%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF-4)
-      - [正常流程](#%E6%AD%A3%E5%B8%B8%E6%B5%81%E7%A8%8B-4)
-      - [扩展流程](#%E6%89%A9%E5%B1%95%E6%B5%81%E7%A8%8B-4)
-    - [review.create 新建互评作业](#reviewcreate-%E6%96%B0%E5%BB%BA%E4%BA%92%E8%AF%84%E4%BD%9C%E4%B8%9A)
-      - [基本信息](#%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF-5)
-      - [正常流程](#%E6%AD%A3%E5%B8%B8%E6%B5%81%E7%A8%8B-5)
-      - [扩展流程](#%E6%89%A9%E5%B1%95%E6%B5%81%E7%A8%8B-5)
-    - [review.argue 对互评内容进行解释](#reviewargue-%E5%AF%B9%E4%BA%92%E8%AF%84%E5%86%85%E5%AE%B9%E8%BF%9B%E8%A1%8C%08%E8%A7%A3%E9%87%8A)
-      - [基本信息](#%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF-6)
-      - [正常流程](#%E6%AD%A3%E5%B8%B8%E6%B5%81%E7%A8%8B-6)
-      - [扩展流程](#%E6%89%A9%E5%B1%95%E6%B5%81%E7%A8%8B-6)
-    - [result.sum 查看某一次已结束的互评作业的汇总结果](#resultsum-%E6%9F%A5%E7%9C%8B%E6%9F%90%E4%B8%80%E6%AC%A1%E5%B7%B2%E7%BB%93%E6%9D%9F%E7%9A%84%E4%BA%92%E8%AF%84%E4%BD%9C%E4%B8%9A%E7%9A%84%E6%B1%87%E6%80%BB%E7%BB%93%E6%9E%9C)
-      - [基本信息](#%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF-7)
-      - [正常流程](#%E6%AD%A3%E5%B8%B8%E6%B5%81%E7%A8%8B-7)
-      - [扩展流程](#%E6%89%A9%E5%B1%95%E6%B5%81%E7%A8%8B-7)
-    - [result.check 老师复核某一文档的互评结果](#resultcheck-%E8%80%81%E5%B8%88%E5%A4%8D%E6%A0%B8%E6%9F%90%E4%B8%80%E6%96%87%E6%A1%A3%E7%9A%84%E4%BA%92%E8%AF%84%E7%BB%93%E6%9E%9C)
-      - [基本信息](#%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF-8)
-      - [正常流程](#%E6%AD%A3%E5%B8%B8%E6%B5%81%E7%A8%8B-8)
-      - [扩展流程](#%E6%89%A9%E5%B1%95%E6%B5%81%E7%A8%8B-8)
-    - [teacher.review.ls 老师查看互评作业列表](#teacherreviewls-%E8%80%81%E5%B8%88%E6%9F%A5%E7%9C%8B%E4%BA%92%E8%AF%84%E4%BD%9C%E4%B8%9A%E5%88%97%E8%A1%A8)
-      - [基本信息](#%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF-9)
-      - [正常流程](#%E6%AD%A3%E5%B8%B8%E6%B5%81%E7%A8%8B-9)
-      - [扩展流程](#%E6%89%A9%E5%B1%95%E6%B5%81%E7%A8%8B-9)
-    - [teacher.review.vim 老师查看互评作业详情](#teacherreviewvim-%E8%80%81%E5%B8%88%E6%9F%A5%E7%9C%8B%E4%BA%92%E8%AF%84%E4%BD%9C%E4%B8%9A%E8%AF%A6%E6%83%85)
-      - [基本信息](#%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF-10)
-      - [正常流程](#%E6%AD%A3%E5%B8%B8%E6%B5%81%E7%A8%8B-10)
-      - [扩展流程](#%E6%89%A9%E5%B1%95%E6%B5%81%E7%A8%8B-10)
-    - [student.review.ls 学生查看互评作业](#studentreviewls-%E5%AD%A6%E7%94%9F%E6%9F%A5%E7%9C%8B%E4%BA%92%E8%AF%84%E4%BD%9C%E4%B8%9A)
-      - [基本信息](#%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF-11)
-      - [正常流程](#%E6%AD%A3%E5%B8%B8%E6%B5%81%E7%A8%8B-11)
-      - [扩展流程](#%E6%89%A9%E5%B1%95%E6%B5%81%E7%A8%8B-11)
-    - [document.ls 学生查看待互评文档](#documentls-%E5%AD%A6%E7%94%9F%E6%9F%A5%E7%9C%8B%E5%BE%85%E4%BA%92%E8%AF%84%E6%96%87%E6%A1%A3)
-      - [基本信息](#%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF-12)
-      - [正常流程](#%E6%AD%A3%E5%B8%B8%E6%B5%81%E7%A8%8B-12)
-      - [扩展流程](#%E6%89%A9%E5%B1%95%E6%B5%81%E7%A8%8B-12)
-    - [result.vim 学生查看互评结果](#resultvim-%E5%AD%A6%E7%94%9F%E6%9F%A5%E7%9C%8B%E4%BA%92%E8%AF%84%E7%BB%93%E6%9E%9C)
-      - [基本信息](#%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF-13)
-      - [正常流程](#%E6%AD%A3%E5%B8%B8%E6%B5%81%E7%A8%8B-13)
-      - [扩展流程](#%E6%89%A9%E5%B1%95%E6%B5%81%E7%A8%8B-13)
-    - [document.review 学生互评文档](#documentreview-%E5%AD%A6%E7%94%9F%E4%BA%92%E8%AF%84%E6%96%87%E6%A1%A3)
-      - [基本信息](#%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF-14)
-      - [正常流程](#%E6%AD%A3%E5%B8%B8%E6%B5%81%E7%A8%8B-14)
-      - [扩展流程](#%E6%89%A9%E5%B1%95%E6%B5%81%E7%A8%8B-14)
-  - [数据定义](#%E6%95%B0%E6%8D%AE%E5%AE%9A%E4%B9%89)
+[TOC]
 
 ## 版本记录
 
@@ -378,7 +313,7 @@
 
 
 
-      
+
 ### teacher.review.ls 老师查看互评作业列表
 
 #### 基本信息
